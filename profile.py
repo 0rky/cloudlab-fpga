@@ -106,8 +106,10 @@ for i in range(params.nodeCount):
     node = request.RawPC(name)
     node.disk_image = params.osImage
     # Assign to the node hosting the FPGA.
-    node.hardware_type = "fpga-alveo"
-    node.component_manager_id = "urn:publicid:IDN+cloudlab.umass.edu+authority+cm"
+    # node.hardware_type = "fpga-alveo"
+    # node.component_manager_id = "urn:publicid:IDN+cloudlab.umass.edu+authority+cm"
+    node.hardware_type = "ibm8335"
+    node.component_manager_id -= "urn:publicid:IDN+clemson.cloudlab.us+authority+cm"
     
     if params.nodeCount > 1 and params.enable40ginterface == True:
         iface = node.addInterface("enp134s0f0")
